@@ -56,7 +56,7 @@ export default function Scene() {
 					/>
 
 					<OrbitControls
-						autoRotate={true}
+						autoRotate={false}
 						autoRotateSpeed={0.2}
 						// minZoom={40}
 						// maxZoom={140}
