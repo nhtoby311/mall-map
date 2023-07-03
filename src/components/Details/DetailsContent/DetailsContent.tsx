@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 import image from '../../../assets/images/zawa.jpg';
+import useStores from '../../../store/store';
+import { useEffect, useRef } from 'react';
+
+function usePrevious<T>(value: T) {
+	const ref = useRef<T>();
+
+	useEffect(() => {
+		ref.current = value;
+	}, [value]);
+
+	return ref.current;
+}
 
 export default function DetailsContent() {
+	const { currentStore } = useStores();
+	const nonNullVal = usePrevious(currentStore);
 	return (
 		<>
 			<TitleContainer>
-				<Title>ZAWA</Title>
-				<SubTitle>clothing shop</SubTitle>
+				<Title>{currentStore?.name || nonNullVal?.name}</Title>
+				<SubTitle>{currentStore?.type || nonNullVal?.type}</SubTitle>
 				<TimeTable>
 					<p>Mon</p>
 					<p>08:00</p>

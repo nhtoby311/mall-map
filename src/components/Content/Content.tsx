@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import Details from '../Details/Details';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import useStores from '../../store/store';
 
 export default function Content() {
 	const [detailsOpen, setDetailsOpen] = useState(true);
@@ -12,6 +13,8 @@ export default function Content() {
 		setDetailsOpen(!detailsOpen);
 	};
 
+	const { currentStore, setCurrentStore } = useStores();
+
 	return (
 		<Container>
 			<Hero>
@@ -19,7 +22,9 @@ export default function Content() {
 				<Footer />
 			</Hero>
 			<AnimatePresence mode='wait'>
-				{detailsOpen && <Details exitCallBack={toggleDetails} />}
+				{currentStore && (
+					<Details exitCallBack={() => setCurrentStore(null)} />
+				)}
 			</AnimatePresence>
 		</Container>
 	);

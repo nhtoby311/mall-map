@@ -1,36 +1,40 @@
 import { Html } from '@react-three/drei';
 import styled from 'styled-components';
 import CutlerySVG from '../SVG/CutlerySVG';
+import useStores from '../../store/store';
 
 export default function Points() {
+	const { stores } = useStores();
+
 	return (
 		<>
-			<Html as='div' position={[-1, 8, 40]}>
-				<Logo>ZAWA</Logo>
-			</Html>
-
-			<Html as='div' position={[21, 4, 35]}>
-				<Icon>
-					<StyledCutlery />
-				</Icon>
-			</Html>
-
-			<Html as='div' position={[38, 8, 35]}>
-				<Logo>CBC</Logo>
-			</Html>
-
-			<Html as='div' position={[38, 8, -35]}>
-				<Logo>BestBit</Logo>
-			</Html>
-
-			<Html as='div' position={[23, 6, -45]}>
-				<Icon>
-					<StyledCutlery />
-				</Icon>
-			</Html>
+			{stores.map((store) => (
+				<Point
+					position={store.positions}
+					type={store.type}
+					id={store.id}
+					name={store.name}
+				/>
+			))}
 		</>
 	);
 }
+
+const Point = ({ position, type, id, name }: any) => {
+	const { setCurrentStore } = useStores();
+
+	return (
+		<Html as='div' position={position}>
+			{type === 'food' ? (
+				<Icon onClick={() => setCurrentStore(id)}>
+					<StyledCutlery />
+				</Icon>
+			) : (
+				<Logo onClick={() => setCurrentStore(id)}>{name}</Logo>
+			)}
+		</Html>
+	);
+};
 
 const Logo = styled.p`
 	font-size: 28px;
