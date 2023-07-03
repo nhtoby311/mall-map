@@ -1,14 +1,26 @@
 import styled from 'styled-components';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Details from '../Details/Details';
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Content() {
+	const [detailsOpen, setDetailsOpen] = useState(true);
+
+	const toggleDetails = () => {
+		setDetailsOpen(!detailsOpen);
+	};
+
 	return (
 		<Container>
 			<Hero>
 				<Header />
 				<Footer />
 			</Hero>
+			<AnimatePresence mode='wait'>
+				{detailsOpen && <Details exitCallBack={toggleDetails} />}
+			</AnimatePresence>
 		</Container>
 	);
 }
