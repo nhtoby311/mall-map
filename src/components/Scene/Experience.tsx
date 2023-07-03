@@ -20,13 +20,13 @@ import { Perf } from 'r3f-perf';
 import { Model } from './Model';
 
 export default function Experience() {
-	const controlsPerformace = useControls('performance', {
-		perfVisible: true,
-	});
+	// const controlsPerformace = useControls('performance', {
+	// 	perfVisible: true,
+	// });
 
 	return (
 		<>
-			{controlsPerformace.perfVisible && <Perf position={'top-left'} />}
+			{/* {controlsPerformace.perfVisible && <Perf position={'top-left'} />} */}
 
 			{/* <Sky /> */}
 
