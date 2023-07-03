@@ -1,7 +1,7 @@
 import { useGLTF, useTexture } from '@react-three/drei';
 
-export function Model(props) {
-	const { nodes, materials } = useGLTF('/assets/mall.glb');
+export function Model(props: any) {
+	const { nodes, materials }: any = useGLTF('/assets/mall.glb');
 	const bakedTexture = useTexture('/assets/baked.webp');
 	bakedTexture.flipY = false;
 
