@@ -1,5 +1,11 @@
+import Scene from './components/Scene/Scene';
+
 function App() {
-	return <></>;
+	return (
+		<>
+			<Scene />
+		</>
+	);
 }
 
 export default App;
