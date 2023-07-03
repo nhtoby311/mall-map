@@ -38,7 +38,7 @@ const Container = styled.div`
 	overflow: auto;
 	height: 100%;
 	width: 100%;
-	padding: 20px;
+	padding: 20px 30px;
 `;
 
 const ContentContainer = styled.div`

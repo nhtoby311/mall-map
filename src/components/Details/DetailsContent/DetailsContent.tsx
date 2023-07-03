@@ -94,6 +94,7 @@ const TitleContainer = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	max-width: 200px;
+	min-width: 200px;
 `;
 
 const Title = styled.h2`

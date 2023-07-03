@@ -7,12 +7,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import useStores from '../../store/store';
 
 export default function Content() {
-	const [detailsOpen, setDetailsOpen] = useState(true);
-
-	const toggleDetails = () => {
-		setDetailsOpen(!detailsOpen);
-	};
-
 	const { currentStore, setCurrentStore } = useStores();
 
 	return (
