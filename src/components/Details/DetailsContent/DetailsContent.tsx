@@ -138,5 +138,14 @@ const TextContainer = styled.div`
 
 		font-size: 16px;
 		font-weight: 400;
+
+		@media (max-width: 768px) {
+			max-width: none;
+			max-height: none;
+		}
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
 	}
 `;

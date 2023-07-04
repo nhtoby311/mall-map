@@ -31,6 +31,10 @@ const Wrapper = styled(motion.section)`
 	background: #fffefa;
 	pointer-events: auto;
 	border-top-left-radius: 10px;
+
+	@media (max-width: 768px) {
+		height: 60vh;
+	}
 `;
 
 const Container = styled.div`
@@ -39,12 +43,22 @@ const Container = styled.div`
 	height: 100%;
 	width: 100%;
 	padding: 20px 30px;
+
+	@media (max-width: 768px) {
+		padding: 0;
+		margin: 20px 30px;
+	}
 `;
 
 const ContentContainer = styled.div`
 	display: flex;
 	gap: 40px;
 	/* background: red; */
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		max-width: 100%;
+	}
 `;
 
 const StyledExitSVG = styled(ExitSVG)`
@@ -52,6 +66,7 @@ const StyledExitSVG = styled(ExitSVG)`
 	top: -60px;
 	right: 20px;
 	cursor: pointer;
+	z-index: -1;
 	> .cross-svg {
 		transform-origin: 50% 45%;
 		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
