@@ -26,7 +26,7 @@ const Point = ({ position, type, id, name }: any) => {
 	return (
 		<Html as='div' position={position}>
 			{type === 'food' ? (
-				<Icon onClick={() => setCurrentStore(id)}>
+				<Icon>
 					<StyledCutlery />
 				</Icon>
 			) : (
@@ -55,5 +55,5 @@ const Icon = styled.div`
 
 const StyledCutlery = styled(CutlerySVG)`
 	width: 28px;
-	cursor: pointer;
+	/* cursor: pointer; */
 `;

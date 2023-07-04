@@ -19,6 +19,7 @@ import { useControls } from 'leva';
 import { Perf } from 'r3f-perf';
 import { Model } from './Model';
 import Points from './Points';
+import useStores from '../../store/store';
 
 export default function Experience() {
 	// const controlsPerformace = useControls('performance', {
@@ -31,16 +32,17 @@ export default function Experience() {
 
 			{/* <Sky /> */}
 
+			{/* <Environment preset='warehouse' /> */}
+
 			<color attach='background' args={['#d2cdbd']} />
 
 			{/* <fogExp2 attach='fog' args={['#ffecce', 0.006]} /> */}
 
 			<fog attach='fog' args={['#ffecce', 0, 650]} />
 
-			<Points />
-
 			<Suspense fallback={null}>
 				<Model position={[0, -1, 0]} scale={2} />
+				<Points />
 			</Suspense>
 
 			{/* <CameraRig /> */}

@@ -39,7 +39,8 @@ export default function DetailsContent() {
 				</TimeTable>
 			</TitleContainer>
 
-			<ImageContainer src={image}></ImageContainer>
+			<ImageContainer
+				src={currentStore?.image || nonNullVal?.image}></ImageContainer>
 
 			<TextContainer>
 				<p>

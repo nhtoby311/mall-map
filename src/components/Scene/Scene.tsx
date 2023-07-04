@@ -7,6 +7,7 @@ import {
 	OrthographicCamera,
 	PerspectiveCamera,
 } from '@react-three/drei';
+import useStores from '../../store/store';
 
 export default function Scene() {
 	// const controlsCamera = useControls('camera', {
@@ -31,6 +32,8 @@ export default function Scene() {
 	// 	},
 	// });
 
+	const { currentStore } = useStores();
+
 	return (
 		<>
 			<Leva />
@@ -41,6 +44,7 @@ export default function Scene() {
 						toneMapping: THREE.NoToneMapping,
 					}}>
 					<Experience />
+
 					<OrthographicCamera
 						// rotation={[
 						// 	controlsCamera.rotation.x,

@@ -1,11 +1,14 @@
 import { create } from 'zustand';
+import CBC from '../assets/images/CBC.jpg';
+import Cuisine from '../assets/images/cuisine.jpg';
+import Zawa from '../assets/images/zawa.jpg';
 
 const STORES = [
 	{
 		id: 1,
 		name: 'ZAWA',
 		type: 'clothing shop',
-		image: '',
+		image: Zawa,
 		positions: [-1, 8, 40],
 	},
 	{
@@ -18,15 +21,15 @@ const STORES = [
 	{
 		id: 3,
 		name: 'CBC',
-		type: 'clothing shop',
-		image: '',
+		type: 'shoes shop',
+		image: CBC,
 		positions: [38, 8, 35],
 	},
 	{
 		id: 4,
-		name: 'BestBit',
-		type: '',
-		image: '',
+		name: 'Cuisine',
+		type: 'restaurant',
+		image: Cuisine,
 		positions: [38, 8, -35],
 	},
 	{
@@ -41,12 +44,16 @@ const STORES = [
 type StoresState = {
 	stores: typeof STORES;
 	currentStore: (typeof STORES)[number] | null;
+	currentColor: string;
 	setCurrentStore: (storeId: number | null) => void;
+	setCurrentColor: (color: string) => void;
 };
 
 const useStores = create<StoresState>()((set) => ({
 	stores: STORES,
 	currentStore: null,
+	currentColor: '#FDF8CA',
+
 	setCurrentStore: (storeId: number | null) => {
 		if (storeId === null) {
 			return set({ currentStore: null });
@@ -55,6 +62,8 @@ const useStores = create<StoresState>()((set) => ({
 			currentStore: STORES.find((store) => store.id === storeId),
 		});
 	},
+
+	setCurrentColor: (color: string) => set({ currentColor: color }),
 }));
 
 export default useStores;
